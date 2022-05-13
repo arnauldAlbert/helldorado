@@ -1,0 +1,18 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} liste des joueurs {% endblock %}
+
+{% block content %}
+    <h3> Liste des joueurs </h3>
+    <a href="/helldorado/keywords/ajout/0/"> ajouter un mot clé </a>
+        <ol>
+    {% for l in liste %}
+        <li> Mot clé : {{l.name}}
+            | <a href="/helldorado/keywords/delete/{{l.id}}"> effacer </a>
+            | <a href="/helldorado/keywords/affiche/{{l.id}}"> affiche </a>
+            | <a href="/helldorado/keywords/update/{{l.id}}"> update </a></li>
+             <p> {{l.description}}</p>
+
+     {% endfor%}
+        </ol>
+{% endblock%}

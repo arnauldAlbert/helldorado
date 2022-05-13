@@ -1,0 +1,16 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} liste des teams {% endblock %}
+
+{% block content %}
+    <h3> Liste des equipes </h3>
+
+        <ul>
+    {% for l in liste %}
+        <li> Teams : {{l.name}} de la faction {{l.faction.nom}}
+            | <a href="/helldorado/teams/delete/{{l.id}}"> effacer </a>
+            | <a href="/helldorado/teams/affiche/{{l.id}}"> affiche </a>
+            | <a href="/helldorado/teams/update/{{l.id}}"> update </a></li>
+     {% endfor%}
+        </ul>
+{% endblock%}

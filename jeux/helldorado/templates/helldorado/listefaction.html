@@ -1,0 +1,19 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} liste des factions {% endblock %}
+
+{% block content %}
+    <h1> Liste des factions </h1>
+    <a href="/helldorado/faction/ajout/0/"> ajouter une nouvelle Faction </a>
+        <ul>
+    {% for l in liste %}
+            <li> <h3> Faction : {{l.nom}} </h3>
+            | <a href="/helldorado/faction/delete/{{l.id}}"> effacer </a>
+            | <a href="/helldorado/faction/affiche/{{l.id}}"> affiche </a>
+            | <a href="/helldorado/faction/update/{{l.id}}"> update </a>
+        <p> {{l.description}} </p>
+        </li>
+
+     {% endfor%}
+        </ul>
+{% endblock%}

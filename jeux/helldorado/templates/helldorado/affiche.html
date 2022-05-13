@@ -1,0 +1,38 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} affiche {{type}} {% endblock %}
+
+{% block content %}
+    {% if type == "joueur" %}
+    <h1> affichage d'un joueur </h1>
+    <p> joueur {{object.nom}} inscrit le {{object.date_inscription}} </p>
+    <p> <a href="mailto:{{object.email}}"> contact  </a></p>
+    {% elif type == "faction" %}
+    <h3> {{type}} {{object.nom}}</h3>
+    <p> {{object.description}}</p>
+    <ol> Liste des figurines de la faction
+        {% for l in liste %}
+            <li> {{l.name}} </li>
+        {% endfor %}
+    </ol>
+    <a href="/helldorado/figurine/ajout/{{object.id}}/"> ajouter une figurine à la faction </a>
+     {% elif type == "figurine" %}
+         <p> Figurine {{object.name}} </p>
+
+            <ol> Liste des mots clés de la figurine
+        {% for l in liste %}
+            <li> {{l.nom}} </li>
+        {% endfor %}
+    </ol>
+
+    {% elif type == "keywords" %}
+     <p> vide </p>
+
+
+    {% elif type == "teams" %}
+
+        <h3> {{object.nom}}</h3>
+    {% endif %}
+
+
+{% endblock %}

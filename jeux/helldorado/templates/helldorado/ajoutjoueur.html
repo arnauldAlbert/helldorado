@@ -1,0 +1,12 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} formulaire joueur {% endblock %}
+
+{% block content %}
+    <h3> Ajout d'un joueur </h3>
+    <form action="/helldorado/traitementjoueur/" method="POST"/>
+        {% csrf_token %}
+        {{jform.as_ul}}
+        <input type="submit" value="ajouter"/>
+    </form>
+{% endblock%}

@@ -1,0 +1,16 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} liste des joueurs {% endblock %}
+
+{% block content %}
+    <h3> Liste des figurines </h3>
+
+        <ul>
+    {% for l in liste %}
+        <li> Figurine : {{l.name}} de la faction {{l.faction.nom}}
+            | <a href="/helldorado/figurine/delete/{{l.id}}"> effacer </a>
+            | <a href="/helldorado/figurine/affiche/{{l.id}}"> affiche </a>
+            | <a href="/helldorado/figurine/update/{{l.id}}"> update </a></li>
+     {% endfor%}
+        </ul>
+{% endblock%}

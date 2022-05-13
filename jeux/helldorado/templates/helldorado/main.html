@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link href="{%static 'hell.css'%}" rel="stylesheet" type="text/css"/>
+    <meta charset="UTF-8">
+    <title> {% block title %} {% endblock %}
+
+    </title>
+</head>
+<body>
+ <div class="main">
+    <header>
+         <h1> Mon site sur HellDorado </h1>
+        <img src="{%static 'img/Hell-Dorado-Logo.png' %}"/>
+        <nav><a href="/helldorado/"> Accueil </a><a href="/helldorado/joueurs/"> Joueurs </a><a href="/helldorado/faction/">  Factions </a><a href="/helldorado/figurine/"> liste des figurines </a><a href="/helldorado/keywords/"> liste des mot clés </a></nav>
+    </header>
+
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

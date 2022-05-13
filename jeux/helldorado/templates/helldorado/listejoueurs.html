@@ -1,0 +1,16 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} liste des joueurs {% endblock %}
+
+{% block content %}
+    <h3> Liste des joueurs </h3>
+    <a href="/helldorado/ajoutjoueur/"> ajouter un joueur </a>
+        <ul>
+    {% for l in liste %}
+        <li> Joueur : {{l.nom}} inscrit depuis {{l.date_inscription|date:"d/m/Y"}}
+            | <a href="/helldorado/joueur/delete/{{l.id}}"> effacer </a>
+            | <a href="/helldorado/joueur/affiche/{{l.id}}"> affiche </a>
+            | <a href="/helldorado/joueur/update/{{l.id}}"> update </a></li>
+     {% endfor%}
+        </ul>
+{% endblock%}

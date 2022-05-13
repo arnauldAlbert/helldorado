@@ -1,0 +1,19 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} formulaire {{type}} {% endblock %}
+
+{% block content %}
+    <h3> Ajout d'une {{type}} </h3>
+
+    {% if type == "figurine" %}
+    <form action="/helldorado/{{type}}/traitement/{{id}}/" method="POST" enctype="multipart/form-data"/>
+    <p> Figurine </p>
+    {% else %}
+    <form action="/helldorado/{{type}}/traitement/{{id}}/" method="POST" />
+    {% endif %}
+
+        {% csrf_token %}
+        {{form.as_ul}}
+        <input type="submit" value="ajouter"/>
+    </form>
+{% endblock%}

@@ -1,0 +1,18 @@
+{% extends 'helldorado/main.html' %}
+
+{% block title %} update {{type}} {% endblock %}
+
+{% block content %}
+    <h1> mise à jour des données
+        {% if type == "joueur" %}
+         d'un joueur
+        {% else %}
+        d'une {{ type }}
+        {% endif %}
+    </h1>
+    <form action="/helldorado/{{type}}/traitementupdate/{{id}}/" method="POST">
+        {% csrf_token %}
+        {{form.as_ul}}
+        <input type="submit" value="envoyer"/>
+    </form>
+{% endblock %}
